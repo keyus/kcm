@@ -1,0 +1,65 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">友情链接</div>
+<div class="filter">
+    <div class="handle">
+        <a href="javascript:;" id="add_link" title="新增"><i class="iconfont">&#xe836;</i></a>
+        <a href="{:url(ADMIN_ROUTE.'links/type')}" title="链接分类" id="delete_select"><i class="iconfont">&#xe6c7;</i></a>
+    </div>
+    <form action="{:url(ADMIN_ROUTE.'links')}" method="post" id="search">
+        <div class="block">
+            <select name="pid" id="links_type">
+                <option value="0">所有分类链接</option>
+                {foreach $links_type as $it}
+                <option value="{$it.pid}" {if $links_type_id eq $it.pid} selected {/if}>{$it.name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </form>
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th width="20">ID</th>
+            <th>名称</th>
+            <th>URL</th>
+            <th>图片 <i class="iconfont what-show-img">&#xe60c;</i></th>
+            <th>远程图片</th>
+            <th>启用远程图片</th>
+            <th>分类</th>
+            <th>nofollow</th>
+            <th>排序</th>
+            <th>操作</th>
+        </tr>
+
+        {foreach $links as $it}
+        <tr>
+            <td>{$it.id}</td>
+            <td class="title">{$it.name}</td>
+            <td>{$it.url}</td>
+            <td title="{$it.img}" class="show_img" data-img="{$it.img}">{$it.img}</td>
+            <td>{$it.img_url}</td>
+            <td>{if $it.is_remote}<i class="green">是</i>{else}否{/if}</td>
+            <td>{$it.pid}</td>
+            <td>{if $it.nofollow}<i class="red">nofollow</i>{else}否{/if}</td>
+            <td>{$it.sort}</td>
+            <td>
+                <a href="javascript:;" data-edit="{$it.id}" >编辑</a>
+                <a href="javascript:;" data-delete="{$it.id}">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+    </table>
+</div>
+
+<div class="page">
+    {$links->render()}
+    <div class="page_record">共<strong>{$links->total()}</strong>条记录，每页显示：<strong>{$links->listRows()}</strong>条记录  共<strong>{$links->lastPage()}</strong>页</div>
+</div>
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/links.js"></script>
+{/block}

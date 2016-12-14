@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/asset/style/login.css">
+</head>
+<body>
+
+<div class="login_side">
+    <div>
+        <span>KCMS</span>
+    </div>
+</div>
+
+<div class="login_wrapper">
+<div class="login">
+    <div class="login_form">
+        <h1>后台测试系统</h1>
+        <form id="form">
+            <span class="form_title">用户名：</span>
+            <span>
+                <i class="iconfont">&#xe600;</i>
+                <input type="text" placeholder="请输入您的用户名" name="user" autofocus>
+            </span>
+            <span class="form_title">密码：</span>
+            <span>
+                <i class="iconfont">&#xe602;</i>
+                <input type="password" placeholder="请输入您的密码" name="password" >
+            </span>
+            <span class="form_title">验证码：</span>
+            <span>
+                <i class="iconfont">&#xe601;</i>
+                <input type="text" placeholder="验证码" class="checkcode" name="check">
+                <a href="javascript:;" class="imgcode"><img src="{:captcha_src()}" alt="验证码" id="checkcode" /></a>
+                <a href="javascript:;" class="refresh"><em class="iconfont">&#xe603;</em></a>
+            </span>
+            <span class="remember">
+                <label><input type="checkbox" checked ><em class="iconfont"></em> 记住密码</label>
+                <a href="#">忘记密码?</a>
+            </span>
+            {:token()}
+            <span class="error"></span>
+            <span class="login_submit">
+                <strong id="login_submit"><em class="iconfont">&#xe606;</em>登录</strong>
+            </span>
+        </form>
+    </div>
+</div>
+</div>
+
+<div class="login_copy">温馨提示：css3样式构建 请使用IE9以上浏览器，或360,chrome,firefox进行访问</div>
+
+<script src="/asset/js/lib/jquery-3.1.1.min.js" ></script>
+<script src="/asset/js/common.js" ></script>
+<script src="/asset/js/login.js" ></script>
+
+</body>
+</html>

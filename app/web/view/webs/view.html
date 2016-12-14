@@ -1,0 +1,87 @@
+{extend name='layout/main' /}
+
+{block name='seo'}
+<title>{$article.title}_{$article.cate_name}_{$site.name}</title>
+<meta name="Keywords" content="{$site.keyword}" />
+<meta name="Description" content="{$article.summary}" />
+{/block}
+
+{block name='main'}
+
+<!--banner图 start-->
+<div class="banner2" style="background:url(/web/images/20150715172744159.jpg) center no-repeat;">	</div>
+
+<!--banner图 end-->
+<div class="crumb">
+    <div class="w1000">
+        <p>当前位置：<a href="/" title="首页">首页</a>><a href="{:url('/list/'.$article.pid)}" title="{$article.cate_name}">{$article.cate_name}</a></p>
+    </div>
+</div>
+
+<div class="w1000">
+    <div class="yw search">
+        <div class="fl">
+            <div class="ywgg pr">
+                <h3><span>{$article.cate_name}</span></h3>
+                <div class="search_detail">
+
+
+                    <h4>{$article.title}</h4>
+                    <h6><span class="fl">发表日期：{$article.created_time}</span><span class=""><em class="fl">分享到：</em>
+
+                        <div class="bdsharebuttonbox">
+                            <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                        </div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+	</span></h6>
+
+                    <div class="clearflaot"></div>
+
+                    {$article.body}
+
+                </div>
+            </div>
+        </div>
+        <div class="fr">
+            <a href="http://www.jzsec.com/software/jinjibao/index.shtml" target="_blank"><img src="/web/images/20150925094407771.png" height="145px" width="290px"></a>
+
+            <div class="main_box3">
+                <div class="box_one" style="min-height: 223px;">
+                    <div class="top">
+                        <p class="fl">最新公告</p><a href="/investor/investor_gonggao/index.shtml">更多&gt;&gt;</a>
+                    </div>
+                    <div class="main">
+                        <ul>
+                            {foreach :getC(29,5) as $it}
+                            <li><a href="{:url('/view/'.$it.id)}" title="{$it.title}" target="_blank">{$it.title}</a></li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+                <div class="box_two" style="min-height: 223px;">
+                    <div class="top">
+                        <p class="fl">兴蜀新闻</p><a href="/aboutus/aboutus_xinwen/index.shtml">更多&gt;&gt;</a>
+                    </div>
+                    <div class="main">
+                        <ul>
+                            {foreach :getC(28,5) as $it}
+                            <li><a href="{:url('/view/'.$it.id)}" title="{$it.title}" target="_blank">{$it.title}</a></li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clearflaot"></div>
+            </div>
+        </div>
+        <div class="clearflaot"></div>
+    </div>
+</div>
+
+
+{/block}
+
+{block name="javascript"}
+<script src="/web/js/index.js"></script>
+<script src="/web/js/lib/slider.js"></script>
+{/block}

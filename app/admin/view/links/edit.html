@@ -1,0 +1,110 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">{if $Think.cookie.category_id}修改链接{else}添加链接{/if}</div>
+<div class="form site_form">
+    <form id="Links_edit" action="/api/edit_link" method="post" enctype="multipart/form-data" >
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>名称：</span>
+                <span>
+                    <input type="text" name="name" value="{$links.name}"><br>
+                    <tt>名称为必填值</tt>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>url：</span>
+                <span>
+                    <input type="text" name="url"  value="{$links.url}" placeholder="如：http://baidu.com"><br>
+                    <tt>url地址为必填值 以http://或https://</tt>
+                </span>
+
+            </label>
+        </div>
+        <div>
+            <label for="#">
+                <span>图片：</span>
+                <span>
+                    <ul class="upload_thumb">
+
+                        <li id="show-upload-img" {if $links.img} {else} style="display: none" {/if}>
+                            <img src="{if $links.img} {$links.img} {/if}" class="thumb" data-img="{if $links.img} {$links.img} {/if}">
+                        </li>
+
+                        <li class="upload_input">
+                            <input type="file" name="img">
+                        </li>
+                    </ul>
+                    <tt style="display: block;clear: both">上传图片格式jpg,jpeg,gif,png，且大小不能超过2M,超过300像素会自动裁剪缩放到300px</tt>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>启用远程图片：</span>
+                <span>
+                    <input type="checkbox" name="is_remote" value="1" {if $links.is_remote}checked{/if}> 是
+                </span>
+            </label>
+        </div>
+
+
+        <div>
+            <label>
+                <span>远程图片地址：</span>
+                <span>
+                    <input type="text" name="img_url" value="{$links.img_url}">
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>排序：</span>
+                <span><input type="text" name="sort" value="{if $links.sort}{$links.sort}{else}50{/if}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>nofollow：</span>
+                <span>
+                    <input type="checkbox" name="nofollow" value="1" {if $links.nofollow}checked{/if}> 是<br>
+                    <tt>谨慎使用此项功能,如开启此项，蜘蛛将不再跟踪此链接</tt>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>链接分类：</span>
+                <span>
+                    <select name="pid">
+                        <option value="0">链接分类</option>
+                        {foreach $links_type as $it}
+                        <option value="{$it.pid}" {if $links.pid eq $it.pid}selected{/if}>
+                            {$it.name}
+                        </option>
+                        {/foreach}
+                    </select>
+                </span>
+            </label>
+        </div>
+        <input type="hidden" name="links_id" value="{$Think.cookie.links_id}">
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="submit" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/links_edit.js"></script>
+{/block}

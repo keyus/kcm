@@ -1,0 +1,63 @@
+@import "common.css";
+body{background: #f7f7f7;font-family: '宋体'}
+input{font-family: "Microsoft YaHei"}
+
+a:hover{color: #0589de}
+
+.login_side{width: 330px;position: fixed;left: 0;top: 0;bottom: 0;z-index: 99;background: #1e9bd1;text-align: center;line-height: 100%}
+.login_side div{position: relative;width: 100%;height: 100%;color: #fff;font-family: "Microsoft YaHei";}
+.login_side span{position: absolute;top: 50%;margin-top: -140px;font-size: 70px;left: 0;right: 0;text-align: center}
+
+.login_wrapper{ position: fixed;left: 330px;right: 0;top: 0;bottom: 0}
+.login{width: 1000px;margin:0 auto;position: relative;height: 100%}
+.login .login_form{
+    position: absolute;
+    left: 50%;top: 50%;
+    width:483px;
+    height:427px;
+    border-radius: 5px;
+    padding: 0 38px;
+    margin-left: -320px;
+    margin-top: -260px;
+
+}
+.login .login_form h1{
+    font-size: 44px;
+    color: #0072c6;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: "Microsoft YaHei";
+}
+.login .login_form span{display: block;padding: 5px 0;position: relative;margin-bottom: 10px;width: 300px}
+.login .login_form span.form_title{font-size: 12px;color: #666666;padding: 0;margin-bottom: 0}
+.login .login_form span input{height: 35px;line-height: 35px;}
+.login .login_form span input[type=text],
+.login .login_form span input[type=password]{border: 1px solid #98a3a6;width: 100%;text-indent: 42px}
+.login .login_form span input[type=text]:focus,
+.login .login_form span input[type=password]:focus{border: 1px solid #0589de}
+
+.login .login_form span input.checkcode{width: 123px}
+.login .login_form span .imgcode{position: absolute;width: 96px;height:35px;background: #fff;display: block;left: 137px;top: 4px;color: #fff;text-align: center;overflow: hidden}
+.login .login_form span .refresh{position: absolute;left: 246px;top: 5px;padding: 5px;color: #088fc9}
+.login .login_form span input[type=checkbox]{display: none}
+
+.login .login_form span.remember{font-size: 12px;color: #666666}
+.login .login_form span.remember em{vertical-align: middle}
+.login .login_form span.remember input + em:before{
+    content: "\e604";
+}
+.login .login_form span.remember input:checked + em:before{
+    content: "\e605";color: #0589de;
+}
+.login .login_form span.remember a{float: right;color: #666666;text-decoration: none}
+
+.login .login_form span i{position: absolute;left: 0;top:1px;display: block;width: 40px;height: 40px;text-align: center;line-height: 40px;color: #d3d3d3;font-size: 20px}
+.login .login_form span.error{color: #a81937;padding:0;display: block;text-align: center}
+.login .login_form span input[type=button],
+.login .login_form span input[type=submit],
+.login .login_form span button{width:100%;height: 42px;line-height: 42px;color: #0072c6;border: none;font-size: 18px;background: none}
+.login .login_form span.login_submit{color: #0072c6;font-size: 24px;display: inherit;width: auto}
+.login .login_form span.login_submit em{font-size: 22px;margin-right: 12px}
+.login .login_form span #login_submit{font-weight: 500;cursor: pointer;}
+
+.login_copy{color: #0072c6;text-align: center;font-size: 13px;position: absolute;left: 0;bottom: 50px;right: 0}

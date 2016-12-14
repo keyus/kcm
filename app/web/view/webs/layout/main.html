@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{$site.title}_{$site.name}</title>
+    <meta name="Keywords" content="{$site.keyword}" />
+    <meta name="Description" content="{$site.desc}" />
+    <meta name="baidu-site-verification" content="5qfWBJn12p" />
+    <link href="/web/css/css.css" rel="stylesheet" type="text/css" />
+    {block name='css'}{/block}
+</head>
+
+<body>
+<!--header开始-->
+<div class="header">
+    <div class="header_t">
+            <div class="t_main">
+                <p class="fl">您好，{$site.name}会员机构！投资有风险，入市须谨慎</p>
+                <p class="fr">
+                    <a href="#" target="_blank">机构开户</a>
+                    <a href="#" target="_blank">快速开户</a>
+                    <a href="{:url('/down')}" target="_blank">软件下载</a>
+                    <a href="http://b.sypme.com/trade/" rel="nofollow" target="_blank">代理中心</a>
+                    <a href="#" target="_blank">联系我们</a>
+                </p>
+            </div>
+        </div>
+
+    <div class="header_m ">
+            <div class="m_m w1000">
+                <div style="width: 375px;" class="logo fl">
+                    <h1><a href="/" title="{$site.name}"><img style="" src="/web/images/logo.png"  alt="{$site.name}" class="fl"></a></h1>
+                    <div class="logo_tit fr" style="color: rgb(196, 157, 88); font-size: 14px; font-family: &quot;黑体&quot;; height: 48px; line-height: 24px;">{$site.name}808会员 <br/>CMT会员号001-001-006</div>
+                </div>
+                <div class="fr">
+                    <div class="kfss">
+                        <span>客服热线:</span><strong>{$site.phone}</strong>
+                        <form action="/search/index.shtml" method="get" id="searchform" name="searchform" target="_blank" style="float:right" onsubmit="return checkInput()">
+                            <input id="button" name="keyword" type="text"/>
+                            <em ></em>
+                        </form>
+                    </div>
+                    <!--菜单栏开始-->
+                    <div class="nav">
+                        <ul >
+                            <!--一级菜单开始-->
+                            <li id="catalog_10090109" class="navtwo" >
+                                <a href="/" >首页</a>
+                            </li>
+
+                            <li id="catalog_10090112" class="navtwo">
+                                <a href="{:url('/col/aboutus')}" >公司概况</a>
+                            </li>
+                            <li id="catalog_10090113" class="navtwo">
+                                <a href="{:url('/col/model')}" >业务模式</a>
+                            </li>
+                            <li id="catalog_10090114" class="navtwo">
+                                <a href="{:url('/col/channel')}" >上市品种</a>
+                            </li>
+                            <li id="catalog_1010691" class="navtwo">
+                                <a href="{:url('/list/27')}" >行情资讯</a>
+                            </li>
+                            <li id="catalog_10090116" class="navtwo">
+                                <a href="{:url('/list/29')}" >公告动态</a>
+                            </li>
+                            <!--一级菜单结束-->
+                            <div class="clearflaot"></div>
+                        </ul>
+                    </div>
+                    <!--菜单栏结束-->
+                </div>
+                <div class="clearflaot"></div>
+
+            </div>
+        </div>
+</div>
+<!--header结束-->
+
+{block name='main'}{/block}
+
+<div class="footer">
+    <div class="footer_m w1000">
+        <div style="" class="footer_box1">
+                <div class="fl box1_1 box1_2" style="border-left: 0px none; width: 390px;">
+                    <dl style="width: 260px; margin-right: 0px; padding: 0px;" class="fl"><img style="float: left;" src="/web/images/logo.png"><br style="float: left;">
+                        <div style="float: left;">
+                            <p>工作日：9：00-18：00 </p>
+                            <strong>{$site.phone}</strong>
+                        </div></dl>
+                    <dl style="margin: 0px; padding: 0px;" class="fl">
+                        <dt style="text-align: center;"><a style="" href=""></a></dt>
+                        <img style="width: 100px;margin-left:5px" src="/web/images/20151112105422714.png">
+                    </dl>
+                </div>
+                <div class="fl box1_2" style="width: 400px;">
+
+                    <dl class="fl">
+                        <dt><a href="#">客户服务</a></dt>
+                        <dd><a href="#">投诉建议</a></dd>
+                        <dd><a href="#">在线留言</a></dd>
+                        <dd><a href="#">在线咨询</a></dd>
+                        <dd><a href="#">帮助指南</a></dd>
+                    </dl>
+                    <dl class="fl">
+                        <dt><a href="#">投资者教育</a></dt>
+                        <dd><a href="#">法律法规</a></dd>
+                        <dd><a href="#">反洗钱</a></dd>
+                        <dd><a href="#">打击非法证券活动</a></dd>
+                        <dd><a href="#">开户协议及风险提示书公示</a></dd>
+                        <dd><a href="#">免责条款</a></dd>
+                        <dd><a href="#" target="_blank">证券纠纷调解</a></dd>
+                    </dl>
+                    <div class="clearflaot"></div>
+                </div>
+                <div class="clearflaot"></div>
+            </div>
+        <div class=" footer_box2" style="padding: 5px 0px;">
+                <p style="color:#666;text-align: center;"><em style="color:#000;font-style:normal">兴蜀大宗交易市场支持的签约银行：</em><span style="margin: 0px;">
+                    {foreach $bank_links as $it}
+                    <a href="{$it.url}" target="_blank" style="border-right:1px solid gray" {if $it.nofollow} {$it.nofollow} {/if}>
+                        <img style="height:22px;margin-right:10px;padding-left:5px" src="{$it.img}" alt="{$it.name}" border="0">
+                    </a>
+
+                    {/foreach}
+                </span>      </p>
+                <p style="color:#666;text-align: center;"><em style="color:#000;font-style:normal">注册地址：</em>{$site.address}
+                    <span>      <em style="color:#000;font-style:normal">邮政编码：</em>810000</span>      <span style="margin-left: 0px;"><em style="color:#000;font-style:normal">投诉电话：</em>{$site.phone}</span>
+                    <span style="margin:0px;"><em style="color:#000;font-style:normal">联系电话：</em>{$site.phone}</span>      <span>
+                     <em style="color:#000;font-style:normal">投诉邮箱：</em>{$site.email}</span></p>
+                <p style="color:#666;text-align: center;"><em style="color:#000;font-style:normal">四川：</em>{$site.address}
+                    <span>      <em style="color:#000;font-style:normal">邮政编码：</em>100107</span>      </p>
+            </div>
+                <div class=" footer_box3">
+                <p style="color:#666;font-size:12px">备案/许可证编号：{$site.icp} 版权所有(2015){$site.name} 投资有风险，入市须谨慎</p>
+                <div>
+            </div>
+
+
+</div>
+    </div>
+</div>
+
+<!--客服电话-->
+<div class="wxzx">
+    <div class="zxkf" id="contact_qq" data-qq="{$site.qq}">
+        <img src="/web/images/icon14.png" />
+        <p>在</p><p>线</p><p>客</p><p>服</p>
+    </div>
+</div>
+<!--客服电话-->
+
+<script src="/web/js/lib/jquery.js"></script>
+<script src="/web/js/base.js"></script>
+{block name='javascript'}{/block}
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5197b38ac45395125ba5f58606d36a4e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

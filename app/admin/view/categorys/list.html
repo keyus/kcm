@@ -1,0 +1,82 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">分类</div>
+<div class="filter">
+    <div class="handle">
+
+    </div>
+    <div class="block"><a href="javascript:;" id="add_Cate" title="添加分类"><i class="iconfont">&#xe836;</i></a></div>
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>名称</th>
+            <th>内容数量</th>
+            <th>导航栏</th>
+            <th>排序</th>
+            <th>操作</th>
+        </tr>
+
+        {if $list}
+        {foreach $list as $it}
+        <tr class="data1">
+            <td>{$it.pid}</td>
+            <td class="outcate"  data-show="{if isset($it.child)}1{else}0{/if}" data-type="1">
+                {if isset($it.child)} <i class="iconfont">&#xe6d2;</i> {else}<i class="iconfont"></i> {/if}
+                {$it.name}
+            </td>
+            <td></td>
+            <td>{if $it.is_nav}是{else}否{/if}</td>
+            <td>{$it.sort}</td>
+            <td>
+                <a href="javascript:;" data-edit_id="{$it.pid}">编辑</a>
+                <a href="javascript:;" data-delete_id="{$it.pid}">删除</a>
+            </td>
+        </tr>
+            {if isset($it.child)}
+                {foreach $it.child as $sit}
+                <tr class="data2">
+                    <td>{$sit.pid}</td>
+                    <td class="outcate two"  data-show="{if isset($sit.child)}1{else}0{/if}"  data-type="2">
+                        {if isset($sit.child)} <i class="iconfont">&#xe6d2;</i> {else} <i class="iconfont"></i>{/if}
+                        {$sit.name}
+                    </td>
+                    <td></td>
+                    <td>{if $sit.is_nav}是{else}否{/if}</td>
+                    <td>{$sit.sort}</td>
+                    <td>
+                        <a href="javascript:;" data-edit_id="{$sit.pid}">编辑</a>
+                        <a href="javascript:;" data-delete_id="{$sit.pid}">删除</a>
+                    </td>
+                </tr>
+
+                    {if isset($sit.child)}
+                        {foreach $sit.child as $tit}
+                        <tr class="data3">
+                            <td>{$tit.pid}</td>
+                            <td class="outcate three"  data-show="1"  data-type="3">{$tit.name}</td>
+                            <td></td>
+                            <td>{if $tit.is_nav}是{else}否{/if}</td>
+                            <td>{$tit.sort}</td>
+                            <td>
+                                <a href="javascript:;" data-edit_id="{$tit.pid}">编辑</a>
+                                <a href="javascript:;" data-delete_id="{$tit.pid}">删除</a>
+                            </td>
+                        </tr>
+                        {/foreach}
+                    {/if}
+                {/foreach}
+            {/if}
+        {/foreach}
+        {/if}
+    </table>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/category.js"></script>
+{/block}

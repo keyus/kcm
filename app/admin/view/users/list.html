@@ -1,0 +1,40 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">管理员</div>
+<div class="table">
+    <table id="userlist" v-cloak>
+        <tr>
+            <th>用户名</th>
+            <th>姓名</th>
+            <th>公司</th>
+            <th>地址</th>
+            <th>联系方式</th>
+            <th>上级</th>
+            <th>备注</th>
+            <th>操作</th>
+        </tr>
+
+        <tr v-for="it of user">
+            <td>{{ it.user }}</td>
+            <td>{{ it.name }}</td>
+            <td>{{ it.company }}</td>
+            <td>{{ it.address }}</td>
+            <td>{{ it.tel }}</td>
+            <td>{{ it.pid_company }}</td>
+            <td>{{ it.note }}</td>
+            <td class="handle">
+                <a href="javascript:;" v-on:click="edit(it.id)">编辑</a>
+                <a href="javascript:;" v-on:click="delete(it.id,$index)">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/lib/vue.js"></script>
+<script src="/asset/js/user_list.js"></script>
+{/block}

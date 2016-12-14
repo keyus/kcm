@@ -1,0 +1,94 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">文章列表</div>
+<div class="filter">
+    <div class="handle">
+        <a href="/admin/article/edit" id="add_article" title="新增"><i class="iconfont">&#xe836;</i></a>
+        <a href="#" title="批量删除" class="disabled" id="delete_select"><i class="iconfont">&#xe609;</i></a>
+        {if $search_value}
+        <span>你正在搜索："<strong>{$search_value}</strong>"</span>
+        {/if}
+    </div>
+    <form action="/admin/article" method="get" id="search">
+        <div class="block">
+                <input type="text" name="filter" value="{$search_value}" placeholder="搜索标题和ID" >
+                <a href="javascript:;" class="search"><i class="iconfont">&#xe608;</i></a>
+        </div>
+        <div class="block">
+            <select name="category" id="category">
+                <option value="0">顶级分类</option>
+                {if $tree}
+                {foreach $tree as $it}
+                    <option value="{$it.pid}" {if $Think.cookie.search_category_id eq $it.pid}selected{/if}>{$it.name}</option>
+                    {if isset($it.child)}
+                        {foreach $it.child as $sit}
+                            <option value="{$sit.pid}" {if $Think.cookie.search_category_id eq $sit.pid}selected{/if}>&nbsp;&nbsp;&nbsp;└ {$sit.name}</option>
+                            {if isset($sit.child)}
+                                {foreach $sit.child as $tit}
+                                <option value="{$tit.pid}" {if $Think.cookie.search_category_id eq $tit.pid}selected{/if}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└ {$tit.name}</option>
+                                {/foreach}
+                            {/if}
+                        {/foreach}
+                    {/if}
+                {/foreach}
+                {/if}
+            </select>
+        </div>
+    </form>
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th><input type="checkbox" id="selectall"></th>
+            <th>编号</th>
+            <th>标题</th>
+            <th>颜色</th>
+            <th>作者</th>
+            <th>来源</th>
+            <th>录入者</th>
+            <th>分类</th>
+            <th>热门</th>
+            <th>置顶</th>
+            <th>排序</th>
+            <th>访问次数</th>
+            <th>创建时间</th>
+            <th>最后更新</th>
+            <th>操作</th>
+        </tr>
+
+        {foreach $list as $it}
+        <tr>
+            <td class="checkbox"><input type="checkbox" name="id[]" value="{$it.id}"></td>
+            <td>{$it.id}</td>
+            <td class="title">{if $it.thumb}<img src="{$it.thumb}" data-img="{$it.thumb}" title="封面图" align="left" width="40">{/if} {$it.title}</td>
+            <td class="color"><b style="background: {$it.title_color}"></b></td>
+            <td>{$it.author}</td>
+            <td>{$it.fromto}</td>
+            <td>{$it.inputer}</td>
+            <td>{$it.pid_name}</td>
+            <td>{if $it.hot}<i class="green">是</i>{else}否{/if}</td>
+            <td>{if $it.top}<i class="green">是</i>{else}否{/if}</td>
+            <td>{$it.sort}</td>
+            <td>{$it.read_count}</td>
+            <td>{$it.created_time}</td>
+            <td>{$it.updated_time}</td>
+            <td>
+                <a href="javascript:;" data-edit="{$it.id}" >编辑</a>
+                <a href="javascript:;" data-delete="{$it.id}">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+    </table>
+</div>
+
+<div class="page">
+    {$list->render()}
+    <div class="page_record">共<strong>{$list->total()}</strong>条记录，每页显示：<strong>{$list->listRows()}</strong>条记录  共<strong>{$list->lastPage()}</strong>页</div>
+</div>
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/article.js"></script>
+{/block}

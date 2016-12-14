@@ -1,0 +1,218 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="banner" id="banner">
+
+    {foreach :getSlider() as $it}
+    <a href="{$it.url}" class="d1" style="background:url('{$it.img}') center no-repeat;" title="{$it.alt}"></a>
+    {/foreach}
+
+    <div class="w1000">
+        <ul class="fast_t">
+            <li class="border_b"><a href="{:url('/down')}"><div><img src="/web/images/icon1.png" /><br />软件下载</div></a></li>
+            <li  class=" border_b"><a href="#" target="_blank"><div><img src="/web/images/icon2.png"/><br />网上开户</div></a></li>
+            <li ><a href="{:url('/col/channel')}"><div><img src="/web/images/icon3.png" /><br />上市品种</div></a></li>
+            <li ><a href="{:url('/col/rule')}"><div><img src="/web/images/icon4.png" /><br />交易规则</div></a></li>
+        </ul>
+        <div class="d2 banner_icon" id="banner_id">
+            <ul>
+                {foreach :getSlider() as $it}
+                <li></li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="contain">
+    <div class="w1000">
+        <div class="main_box1" class="clearfix">
+            <div class="fl box_one" style="overflow:hidden">
+                <div class="hd1" style="float: left;">
+                    <ul class="clearfix"  style="padding-top:10px">
+
+                        <li>
+                            <!--<img src="/web/images/xprt_icon.png" class="pa">-->
+                            <h3 style="min-height: 48px;">芳烃油<br>兴蜀大宗源油</h3>
+                            <p class="text1" style="margin-bottom: 0px;">&nbsp;</p>
+                            <div class="syqx">
+                                <div class="qx fl" style="width: 220px;">
+                                    <span style="color:#999">产品状态</span><strong><span>上市</span></strong><br>
+                                    <strong><span>商品现货CMT(跨市场交易)模式</span></strong>
+                                </div>
+                                <div class="clearflaot"></div>
+                            </div>
+                            <p class="text2">交易单位：1000</p>
+                            <p class="text2">保证金：固定保证金</p>
+                            <p class="text2">交易特点：全球原油实时报价</p>
+                            <div class="btn"><a href="{:url('/col/channel')}" target="_blank">了解详情</a><img src="/web/images/btn_bg.png" /></div>
+                            <div class="clearflaot"></div>
+                        </li>
+
+
+                        <li>
+                            <!--<img src="/web/images/xprt_icon.png" class="pa">-->
+                            <h3 style="min-height: 48px;">燃气<br>兴蜀大宗燃气</h3>
+                            <p class="text1" style="margin-bottom: 0px;">&nbsp;</p>
+                            <div class="syqx">
+                                <div class="qx fl" style="width: 220px;">
+                                    <span style="color:#999">产品状态</span><strong><span>上市</span></strong><br>
+                                    <strong><span>商品现货CMT(跨市场交易)模式</span></strong>
+                                </div>
+                                <div class="clearflaot"></div>
+                            </div>
+                            <p class="text2">交易单位：10000</p>
+                            <p class="text2">保证金：固定保证金</p>
+                            <p class="text2">交易特点：全球燃气实时报价</p>
+                            <div class="btn"><a href="{:url('/col/channel')}" target="_blank">了解详情</a><img src="/web/images/btn_bg.png" /></div>
+                            <div class="clearflaot"></div>
+                        </li>
+
+
+
+                        <li>
+                            <!--<img src="/web/images/xprt_icon.png" class="pa">-->
+                            <h3 style="min-height: 48px;">银精矿和铜<br>兴属大宗银，铜</h3>
+                            <p class="text1" style="margin-bottom: 0px;">&nbsp;</p>
+                            <div class="syqx">
+                                <div class="qx fl" style="border-right:1px solid #CCC">
+                                    <span style="color:#999">产品状态</span><br />
+                                    <strong><span>上市</span></strong>
+                                </div>
+                                <div class="qx fr">
+                                    <span style="color:#999">交割方式</span><br />
+                                    <strong style="font-size:16px">实物<span>交割</span></strong>
+                                </div>
+                                <div class="clearflaot"></div>
+                            </div>
+                            <p class="text2">交易单位：银矿(5000)/铜(25000)</p>
+                            <p class="text2">保证金：固定保证金</p>
+                            <p class="text2">交易特点：全球同步</p>
+                            <div class="btn"><a href="{:url('/col/channel')}" target="_blank">了解详情</a><img src="/web/images/btn_bg.png" /></div>
+                            <div class="clearflaot"></div>
+                        </li>
+                        <li>
+                            <h3 style="min-height: 48px;">九州增发一期<br>集合资产管理计划</h3>
+                            <p class="text1" style="margin-bottom: 0px;">&nbsp;</p>
+                            <div class="syqx">
+                                <div class="qx fl" style="border-right:1px solid #CCC">
+                                    <span style="color:#999">产品状态</span><br />
+                                    <strong>&nbsp;<span>募集结束</span></strong>
+                                </div>
+                                <div class="qx fr">
+                                    <span style="color:#999">投资期限</span><br />
+                                    <strong style="font-size:16px">12+6<span>个月</span></strong>
+                                </div>
+                                <div class="clearflaot"></div>
+                            </div>
+                            <p class="text2">起投金额：100万</p>
+                            <p class="text2">起投日期：2015年6月8日</p>
+                            <p class="text2">结束日期：2015年6月12日</p>
+                            <div class="btn"><a href="{:url('/col/channel')}" target="_blank">了解详情</a><img src="/web/images/btn_bg.png" /></div>
+                            <div class="clearflaot"></div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="clearflaot"></div>
+                <div id="yd1" class="yd"><a href="#"  class="on"></a></div>
+            </div>
+            <div class="fr">
+                <div class="border_b">
+                    <img src="/web/images/icon5.png" />
+                    <h3>融资融券</h3>
+                    <p>低成本、高效率，投资利器</p>
+                    <a href="#">查看详情</a>
+                </div>
+            </div>
+            <div class="fr">
+                <div >
+                    <img src="/web/images/icon6.png" />
+                    <h3>在线交易</h3>
+                    <p>能为您服务是我们的荣幸</p>
+                    <a href="#" target="_blank">查看详情</a>
+                </div>
+            </div>
+            <div class="clearflaot"></div>
+        </div>
+        <div class="main_box2">
+            <div class="fl box_one clearfix">
+                <div class="one"><a style="height:113px;"><img src="/web/images/icon7.png" /><br />金融产品超市</a></div>
+                <div class="hd2" style="width:509px;float:left;background:#fff;">
+                    <ul class="clearfix">
+                        <li><a href="#"><img src="/web/images/icon8.png" /><br />芳烃油</a></li>
+                        <li><a href="#"><img src="/web/images/icon9.png" /><br />燃气</a></li>
+
+                        <li><a href="#"><img src="/web/images/icon10.png" /><br />银精矿</a></li>
+                        <li><a href="#"><img src="/web/images/icon11.png" /><br />铜</a></li>
+                        <li><a  href="#"><img src="/web/images/icon11.png" /><br />兴蜀E购</a></li>
+                    </ul>
+                </div>
+                <div class="clearflaot"></div>
+                <div id="yd2" class="yd"><a href="#" class="on"></a></div>
+            </div>
+            <div class="fr">
+                <img src="/web/images/jzcq2.jpg" />
+            </div>
+            <div class="clearflaot"></div>
+        </div>
+        <!--资讯块 start-->
+        <div class="main_box3">
+            <div class="fl box_one"  style="padding: 0px;">
+                <div class="top clearfix" style="padding: 0px;">
+                    <a class="tab1 navi on"><span>行情资讯</span></a><a class="tab2 navi"><span>新闻快报</span></a><a class="tab3 navi"><span>最新公告</span></a>
+                    <a class="more fr" href="#" class="fr">更多&gt;&gt;</a>
+                    <a class="more fr" style="display:none;" href="#" class="fr">更多&gt;&gt;</a>
+                    <a class="more fr" style="display:none;" href="#" class="fr">更多&gt;&gt;</a>
+                </div>
+                <div class="main clearfix" style="padding:0px 0 15px">
+                    <ul class="fl ulone" style="min-height:162px">
+                        {foreach :getC(27,10) as $it}
+                        <li><a href="{:url('/view/'.$it.id)}" title="{$it.title}" target="_blank"><p class="fl">{$it.title}</p>{$it.created_time|format}</a></li>
+                        {/foreach}
+                    </ul>
+                    <div class="line"></div>
+                </div>
+                <div class="main clearfix" style="padding:0px 0 15px;display: none">
+                    <ul class="fl ulone" style="min-height:162px">
+                        {foreach :getC(28,10) as $it}
+                        <li><a href="{:url('/view/'.$it.id)}" title="{$it.title}" target="_blank"><p class="fl">{$it.title}</p>{$it.created_time|format}</a></li>
+                        {/foreach}
+                    </ul>
+                    <div class="line"></div>
+                </div>
+                <div class="main clearfix" style="padding:0px 0 15px;display: none">
+                    <ul class="fl ulone" style="min-height:162px">
+                        {foreach :getC(29,10) as $it}
+                        <li><a href="{:url('/view/'.$it.id)}" title="{$it.title}" target="_blank"><p class="fl">{$it.title}</p>{$it.created_time|format}</a></li>
+                        {/foreach}
+                    </ul>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <!--资讯块 end-->
+            <div class="fr box_three">
+                <ul class="clearfix" >
+                    <li class="on"><a href="javascript:;">30天金价</a></li>
+                    <li><a  href="javascript:;">60天金价</a></li>
+                    <li><a  href="javascript:;">24时白银</a></li>
+                    <li><a  href="javascript:;">30天白银 </a></li>
+                    <div class="clearflaot"></div>
+                </ul>
+                <div class="zs_img" style="padding:28px 0px">
+                    <img src="http://www.kitco.com/LFgif/au0030lns.gif" width="210" height="140" rel="nofollow" />
+                    <img src="http://www.kitco.com/LFgif/au0060lns.gif" width="210" height="140" style="display:none" rel="nofollow"  />
+                    <img src="http://www.kitconet.com/charts/metals/silver/t24_ag_en_usoz_6.gif"  width="210" height="140" style="display:none" rel="nofollow"  />
+                    <img src="http://www.kitconet.com/charts/metals/silver/ag_go_0030_ny.gif"  width="210" height="140" style="display:none"  rel="nofollow" />
+                </div>
+            </div>
+            <div class="clearflaot"></div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<script src="/web/js/index.js"></script>
+<script src="/web/js/lib/slider.js"></script>
+{/block}

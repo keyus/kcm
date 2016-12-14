@@ -1,0 +1,39 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">链接分类</div>
+<div class="filter">
+    <div class="handle">
+
+    </div>
+    <div class="block"><a href="javascript:;" id="add_link_type" title="添加链接分类"><i class="iconfont">&#xe836;</i></a></div>
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th>名称(链接分类)</th>
+            <th>排序</th>
+            <th>操作</th>
+        </tr>
+
+        {if $list}
+        {foreach $list as $it}
+        <tr>
+            <td>{$it.name}</td>
+            <td>{$it.sort}</td>
+            <td>
+                <a href="javascript:;" data-edit="{$it.pid}">编辑</a>
+                <a href="javascript:;" data-delete="{$it.pid}">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+        {/if}
+    </table>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/links_type.js"></script>
+{/block}

@@ -1,0 +1,77 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="banner2" style="background:url(/web/images/20150715172744159.jpg) center no-repeat;">	</div>
+<!--banner图 end-->
+
+<div class="crumb">
+    <div class="w1000">
+        <p>当前位置：<a href="/" title="首页">首页</a>><a href="{:url('/list/'.$cate.pid)}" title="{$cate.name}">{$cate.name}</a>></p>
+    </div>
+</div>
+<div class="w1000">
+    <div class="yw">
+        <!--左菜单开始-->
+        <!--公用左菜单开始-->
+        <div class="side_nav fl">
+            <dl>
+                <dt>投资者关系</dt>
+                <!--一级菜单开始-->
+                <dd id="left_catalog_parent_10090127" >
+                    <a href="{:url('/list/29')}" >最新公告</a>
+                </dd>
+                <dd id="left_catalog_parent_10090128" class="off">
+                    <a href="{:url('/list/27')}" >行情资讯</a>
+                </dd>
+                <dd id="left_catalog_parent_1010648" class="off">
+                    <a href="javascript:;" >投教专栏</a>
+                </dd>
+                <!--一级菜单结束-->
+            </dl>
+        </div>
+        <!--左菜单结束-->
+        <!-- 主体 start-->
+
+        <div class="fr">
+            <div class="ywgg">
+                <h3><span>{$cate.name}</span></h3>
+                <div class="gg_main">
+                    <!--文章列表-->
+                    <div id="page">
+                        <div class="gg_main">
+                            <ul>
+                                {foreach $list as $it}
+                                <li class="">
+                                    <a class="fl" href="{:url('/view/'.$it.id)}">{$it.title}</a>
+                                    <span class="fr">{$it.created_time|format}</span>
+                                    <div class="clearflaot"></div>
+                                </li>
+                                {/foreach}
+                            </ul>
+                        </div>
+                    </div>
+                    <!--文章列表 end-->
+                </div>
+                <div class="page">
+                    {$list->render()}
+                    <span>共{$list->lastPage()}页</span>
+                    <span>每页显示：{$list->listRows()}条记录</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主体 end-->
+
+
+        <div class="clearflaot"></div>
+    </div>
+</div>
+
+
+{/block}
+
+{block name="javascript"}
+<script src="/web/js/index.js"></script>
+<script src="/web/js/lib/slider.js"></script>
+{/block}

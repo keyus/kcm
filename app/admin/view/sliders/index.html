@@ -1,0 +1,42 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">轮播图片管理</div>
+<div class="filter">
+    <div class="handle">
+        <a href="/admin/slider/edit" id="add_link" title="新增"><i class="iconfont">&#xe836;</i></a>
+    </div>
+
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th>图片(点击查看大图)</th>
+            <th>URL(超链接)</th>
+            <th>说明(alt)</th>
+            <th>使用中</th>
+            <th>排序</th>
+            <th>操作</th>
+        </tr>
+        {if $list}
+        {foreach $list as $it}
+        <tr>
+            <td>{if $it.img}<span class="img"><img src="{$it.img}" data-img="{$it.img}" align="left" width="100"></span>{/if}</td>
+            <td>{$it.url}</td>
+            <td>{$it.alt}</td>
+            <td>{if $it.is_use}<i class="green">是</i>{else}否{/if}</td>
+            <td>{$it.sort}</td>
+            <td>
+                <a href="javascript:;" data-edit="{$it.id}">编辑</a>
+                <a href="javascript:;" data-delete="{$it.id}">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+        {/if}
+    </table>
+</div>
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/slider.js"></script>
+{/block}

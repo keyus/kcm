@@ -1,0 +1,86 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">编辑</div>
+<div class="form">
+    <form  method="post" id="UserForm"  v-cloak>
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>用户名：</span>
+                <span><input type="text" name="user" value="{{user.user}}" disabled></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>密码：</span>
+                <span><input type="password" name="password" v-model="password" placeholder="放弃修改密码，则不用填写"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>姓名：</span>
+                <span><input type="text" name="name" v-model="user.name"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>公司：</span>
+                <span><input type="text" name="company" v-model="user.company"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>地址：</span>
+                <span><input type="text" name="address" v-model="user.address"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>联系方式：</span>
+                <span><input type="text" name="tel" v-model="user.tel"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>上级：</span>
+                <span>
+                    <select name="pid"  v-model="selected">
+                        <option value="0">无</option>
+
+                        <template v-for="it of select">
+                            <option value="{{it.id}}" v-if="curid == it.id" selected>
+                                {{it.user}} {{it.name}} {{it.company}}
+                            </option>
+                            <option value="{{it.id}}" v-else>
+                                {{it.user}} {{it.name}} {{it.company}}
+                            </option>
+                        </template>
+                    </select>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>备注：</span>
+                <span>
+                    <textarea name="note" v-model="user.note"></textarea>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="button" value="保存" v-on:click="submit"></span>
+            </label>
+        </div>
+    </form>
+</div>
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/lib/vue.js"></script>
+<script src="/asset/js/user_edit.js"></script>
+{/block}

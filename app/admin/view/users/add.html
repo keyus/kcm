@@ -1,0 +1,86 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">添加账户</div>
+<div class="form">
+    <form  method="post" id="UserForm" >
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>用户名：</span>
+                <span><input type="text" name="user"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>密码：</span>
+                <span><input type="password" name="password"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>确认密码：</span>
+                <span><input type="password" name="repassword"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>姓名：</span>
+                <span><input type="text" name="name"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>公司：</span>
+                <span><input type="text" name="company"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>地址：</span>
+                <span><input type="text" name="address"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>联系方式：</span>
+                <span><input type="text" name="tel"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>上级：</span>
+                <span>
+                    <select name="pid">
+                        <option value="0">无</option>
+                        {foreach $UserList as $it}
+                        <option value="{$it.id}">
+                            {$it.user} {$it.name} {$it.company}
+                        </option>
+                        {/foreach}
+                    </select>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>备注：</span>
+                <span>
+                    <textarea name="note"></textarea>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="button" value="确认添加"></span>
+            </label>
+        </div>
+    </form>
+</div>
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/user.js"></script>
+{/block}

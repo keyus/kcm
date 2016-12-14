@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>平台</title>
+    <link rel="stylesheet" href="/asset/style/main.css">
+</head>
+<body>
+
+<div class="header">
+    <h1><a href="{url(ADMIN_ROUTE)}">KCM管理平台</a></h1>
+    <div class="set">
+        <ul>
+            <li>
+                {if $Think.session.trade_user_id eq 1}
+                <a href="{:url(ADMIN_ROUTE.'user')}">管理员</a>
+                <a href="{:url(ADMIN_ROUTE.'user/add')}">添加账号</a>
+                {/if}
+            </li>
+            <li class="user">
+                <a>欢迎您 <strong>{$Think.session.trade_user}</strong> <i class="iconfont">&#xe607;</i> </a>
+                <div class="box">
+                    <a href="javascript:;" id="update_user" data-id="{$Think.session.trade_user_id}">重置密码</a>
+                    <a href="{:url(ADMIN_ROUTE.'logout')}">退出账号</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="side" id="side">
+    <h2><i class="iconfont">&#xe61c;</i>控制面板</h2>
+    <dl>
+        <dt><i class="iconfont">&#xe6d2;</i>文章</dt>
+        <dd>
+            <ul>
+                <li><a href="{:url(ADMIN_ROUTE.'category')}" {if $Request.controller eq 'Categorys'} class="active" {/if}>分类</a></li>
+                <li><a href="{:url(ADMIN_ROUTE.'article')}" {if $Request.controller eq 'Articles'} class="active" {/if}>文章列表</a></li>
+            </ul>
+        </dd>
+        <dt {if $Request.controller eq 'Columns'} class="active" {/if}><a href="{:url(ADMIN_ROUTE.'column')}"><i class="iconfont">&#xe62c;</i>栏目</a></dt>
+        <dt><i class="iconfont">&#xe6d2;</i>系统</dt>
+        <dd>
+            <ul>
+                <li><a href="{:url(ADMIN_ROUTE.'slider')}" {if $Request.controller eq 'Sliders'} class="active" {/if}>轮播图</a></li>
+                <li><a href="{:url(ADMIN_ROUTE.'consult')}" {if $Request.controller eq 'Consults'} class="active" {/if}  >咨询日志</a></li>
+                <li><a href="{:url(ADMIN_ROUTE.'links')}" {if $Request.controller eq 'Links'} class="active" {/if}>友情链接</a></li>
+                <li><a href="{:url(ADMIN_ROUTE.'site')}" {if $Request.controller eq 'Sites'} class="active" {/if}>网站配置</a></li>
+            </ul>
+        </dd>
+    </dl>
+</div>
+
+<div class="shadow">
+
+</div>
+
+<div class="main">
+{block name='main'}{/block}
+</div>
+
+<script src="/asset/js/lib/jquery-3.1.1.min.js"></script>
+<script src="/asset/js/common.js"></script>
+<script src="/asset/js/lib/layer.js"></script>
+{block name='javascript'}{/block}
+</body>
+</html>

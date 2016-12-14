@@ -1,0 +1,68 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">{if $Think.cookie.category_id}修改分类{else}添加分类{/if}</div>
+<div class="form">
+    <form  id="Category_edit" >
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>名称：</span>
+                <span><input type="text" name="name" value="{$cate.name}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>导航栏：</span>
+                <span><input type="checkbox" name="is_nav" value="1" {if $cate.is_nav}checked{/if} >是</span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>排序：</span>
+                <span><input type="text" name="sort" value="{if $cate.sort}{$cate.sort}{else}50{/if}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>分类：</span>
+                <span>
+                    <select name="parent_id">
+                        <option value="0">顶级分类</option>
+                        {if $list}
+                        {foreach $list as $it}
+                        <option value="{$it.pid}" {if $cate.parent_id eq $it.pid}selected{/if}>{$it.name}</option>
+                            {if isset($it.child)}
+                                {foreach $it.child as $sit}
+                                <option value="{$sit.pid}" {if $cate.parent_id eq $sit.pid}selected{/if}>&nbsp;&nbsp;&nbsp;└ {$sit.name}</option>
+                                    {if isset($sit.child)}
+                                        {foreach $sit.child as $tit}
+                                        <option disabled="disabled" value="{$tit.pid}" {if $cate.parent_id eq $tit.pid}selected{/if}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└ {$tit.name}</option>
+                                        {/foreach}
+                                    {/if}
+                                {/foreach}
+                            {/if}
+                        {/foreach}
+                        {/if}
+                    </select>
+                </span>
+            </label>
+        </div>
+        <input type="hidden" name="category_id" value="{$Think.cookie.category_id}">
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="button" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/category_edit.js"></script>
+{/block}

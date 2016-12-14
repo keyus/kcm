@@ -1,0 +1,87 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">{if $Think.cookie.column_id}修改栏目{else}添加栏目{/if}</div>
+<div class="form article_form">
+    <form id="column" method="post" action="/api/edit_column">
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>名称：</span>
+                <span><input type="text" name="name" value="{$column.name}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>url访问名：</span>
+                <span>
+                    <input type="text" name="url" value="{$column.url}">
+                    <br>
+                    <tt style="display: block">重要，url访问名如填写"model" 则生成访问链接http://xxx.com/col/model</tt>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>允许访问：</span>
+
+                <span>
+                    {if isset($column.is_vist)}
+                     <input type="checkbox" name="is_vist" value="1" {if $column.is_vist}checked{/if} >是
+                    {else}
+                     <input type="checkbox" name="is_vist" value="1" checked> 是
+                    {/if}
+                </span>
+
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>排序：</span>
+                <span><input type="text" name="sort" value="{if $column.sort}{$column.sort}{else}50{/if}"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>正文：</span>
+                <span>
+                     <script id="editor" name="body" type="text/plain">{$column.body}</script>
+                </span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>关键字：</span>
+                <span><input type="text" name="keyword" value="{$column.keyword}"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>描述：</span>
+                <span><input type="text" name="ds" value="{$column.ds}"></span>
+            </label>
+        </div>
+
+        <input type="hidden" name="column_id" value="{$Think.cookie.column_id}">
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="submit" id="submit" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.js"></script>
+<script src="/asset/js/column_edit.js"></script>
+{/block}

@@ -1,0 +1,68 @@
+{extend name='layout/main' /}
+
+{block name='seo'}
+<title>{$column.name}_{$site.name}</title>
+<meta name="Keywords" content="{$site.keyword}" />
+<meta name="Description" content="{$site.desc}" />
+{/block}
+
+{block name='main'}
+
+<!--banner图 start-->
+<div class="banner2" style="background:url(/web/images/20150715172744159.jpg) center no-repeat;">	</div>
+
+<!--banner图 end-->
+<div class="crumb">
+    <div class="w1000">
+        <p>当前位置：<a href="/index.shtml" title="首页">首页</a>><a title="{$column.name}">{$column.name}</a></p>
+    </div>
+</div>
+<div class="w1000">
+    <div class="yw">
+        <!--左菜单开始-->
+        <!--公用左菜单开始-->
+        <div class="side_nav fl">
+            <dl>
+                <dt>投资者关系</dt>
+                <!--一级菜单开始-->
+                <dd id="left_catalog_parent_10090127" >
+                    <a href="{:url('/list/29')}" >最新公告</a>
+                </dd>
+                <dd id="left_catalog_parent_10090128" class="off">
+                    <a href="{:url('/list/27')}" >行情资讯</a>
+                </dd>
+                <dd id="left_catalog_parent_1010648" class="off">
+                    <a href="javascript:;" >投教专栏</a>
+                </dd>
+                <!--一级菜单结束-->
+            </dl>
+        </div>
+
+
+        <!--左菜单结束-->
+        <!-- 主体 start-->
+
+        <div class="fr">
+            <div class="ywgg">
+                <h3><span>{$column.name}</span></h3>
+                <div class="gg_main">
+                    {$column.body}
+                </div>
+            </div>
+        </div>
+
+        <!-- 主体 end-->
+
+
+        <div class="clearflaot"></div>
+    </div>
+</div>
+
+
+
+{/block}
+
+{block name="javascript"}
+<script src="/web/js/index.js"></script>
+<script src="/web/js/lib/slider.js"></script>
+{/block}

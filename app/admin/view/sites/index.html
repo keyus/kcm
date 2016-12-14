@@ -1,0 +1,100 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">站点配置</div>
+<div class="form site_form">
+    <form action="{:url(ADMIN_ROUTE.'sites')}" method="post">
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>网站名称：</span>
+                <span><input type="text" name="name" value="{$site.name}"></span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>网站标题：</span>
+                <span>
+                   <input type="text" name="title" value="{$site.title}"><br>
+                    <tt>标题将显示在浏览器的标题栏</tt>
+                </span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>网站描述：</span>
+                <span>
+                   <input type="text" name="desc" value="{$site.desc}">
+                </span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>网站关键字：</span>
+                <span>
+                   <input type="text" name="keyword" value="{$site.keyword}">
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>详情地址：</span>
+                <span>
+                   <input type="text" name="address" value="{$site.address}">
+                </span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>客服QQ号码：</span>
+                <span>
+                   <input type="text" name="qq" value="{$site.qq}"><br>
+                    <tt> 如果您有多个客服的QQ号码，请在每个号码之间使用半角逗号（,）分隔。</tt>
+                </span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>客服邮件地址：</span>
+                <span>
+                   <input type="text" name="email" value="{$site.email}">
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>客服电话：</span>
+                <span>
+                   <input type="text" name="phone" value="{$site.phone}">
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>ICP备案号：</span>
+                <span>
+                   <input type="text" name="icp" value="{$site.icp}">
+                </span>
+            </label>
+        </div>
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="submit" id="submit" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/site.js"></script>
+{/block}

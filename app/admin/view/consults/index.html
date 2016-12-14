@@ -1,0 +1,32 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">客户咨询日志</div>
+
+<div class="table">
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>来源</th>
+            <th>QQ</th>
+            <th>咨询时间</th>
+        </tr>
+
+        {foreach $list as $it}
+        <tr>
+            <td>{$it.id}</td>
+            <td class="title">{$it.host}</td>
+            <td>{$it.qq}</td>
+            <td>{$it.time}</td>
+        </tr>
+        {/foreach}
+    </table>
+</div>
+
+<div class="page">
+    {$list->render()}
+    <div class="page_record">共<strong>{$list->total()}</strong>条记录，每页显示：<strong>{$list->listRows()}</strong>条记录  共<strong>{$list->lastPage()}</strong>页</div>
+</div>
+
+{/block}
+

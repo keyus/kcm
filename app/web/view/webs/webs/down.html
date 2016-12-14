@@ -1,0 +1,157 @@
+{extend name='layout/main' /}
+
+{block name='css'}
+<link href="/web/css/content.css" rel="stylesheet" type="text/css" />
+{/block}
+{block name='main'}
+
+<!--banner图 start-->
+<div class="banner2" style="background:url(/web/images/20150715172744159.jpg) center no-repeat;">	</div>
+
+<!--banner图 end-->
+<div class="crumb">
+    <div class="w1000">
+        <p>当前位置：<a href="/index.shtml" title="首页">首页</a>><a href="/investor/index.shtml" title="投资者关系">投资者关系</a>>最新公告</p>
+    </div>
+</div>
+<div class="w1000">
+    <div class="yw">
+        <!--左菜单开始-->
+        <!--公用左菜单开始-->
+        <div class="side_nav fl">
+            <dl>
+                <dt>投资者关系</dt>
+                <!--一级菜单开始-->
+                <dd id="left_catalog_parent_10090127" >
+                    <a href="{:url('/list/29')}" >最新公告</a>
+                </dd>
+                <dd id="left_catalog_parent_10090128" class="off">
+                    <a href="{:url('/list/27')}" >行情资讯</a>
+                </dd>
+                <dd id="left_catalog_parent_1010648" class="off">
+                    <a href="javascript:;" >投教专栏</a>
+                </dd>
+                <!--一级菜单结束-->
+            </dl>
+        </div>
+        <!--公用左菜单结束-->
+
+
+        <!--左菜单结束-->
+        <!-- 主体 start-->
+
+        <div class="fr">
+            <div class="ywgg stdl">
+                <h3><span>兴蜀大宗软件下载</span></h3>
+                <ul class="clearfix">
+                    <li>
+                        <div class="st_frame">
+                            <div class="st_logo"><img src="/web/images/tzds_logo.png"></div>
+                            <div class="st_neirong">
+                                <h4>CMT模式交易软件</h4>
+
+                                <p>PC端 开户及交易一体化</p>
+                                <p>最低版本要求：Windows7及以上</p>
+                                <p>版本：1.0 交易系统</p>
+                                <br>
+                                <p>更新日期：2016-06-26</p>
+                                <p>语言：简体中文</p>
+                            </div>
+                            <div class="st_code">
+                                <div class="wx_img1">
+                                    <img style="width: 128px; height: 128px;" src="/web/images/tzdscode.png">
+                                </div>
+                            </div>
+                            <div class="st_btn">
+                                <div class="st_btn_iso">
+                                    <a href="http://www.xsdzsp.cn/Uploads/download/ab8a1e2fe7a7a6226fc15438ea6981f1.exe" rel="nofollow" target="_blank">
+                                        <img src="/web/images/ios_dl1.png"></a>
+                                </div>
+                            </div>
+                            <div class="clearflaot"></div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="st_frame">
+                            <div class="st_logo"><img src="/web/images/jzsec_logo.png"></div>
+                            <div class="st_neirong">
+                                <h4>兴蜀大宗行情分析系统</h4>
+
+                                <p>全球行情实时动态</p>
+                                <p>基于大宗商品的兴蜀大宗定制专用版！</p>
+                                <br>
+                                <p>更新日期：2016-07-14</p>
+                                <p>语言：简体中文</p>
+                            </div>
+                            <div class="st_code">
+                                <div class="wx_img1">
+                                    <img style="width: 128px; height: 128px;" src="/web/images/tzdscode.png">
+                                </div>
+                            </div>
+                            <div class="st_btn">
+                                <div class="st_btn_iso">
+                                    <a href="http://www.xsdzsp.cn/Uploads/download/13252c59998f7c39d4ee402d7309772a.exe" rel="nofollow" target="_blank"><img src="/web/images/ios_dl2.png"></a>
+                                </div>
+                            </div>
+                            <div class="clearflaot"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="st_frame">
+                            <div class="st_logo"><img src="/web/images/net_logo.jpg"></div>
+                            <div class="st_neirong">
+                                <h4>.net4.0插件</h4>
+                                <p>Microsoft software</p>
+                                <p>如系统未安装此软件，交易软件将启动失败</p>
+                                <br>
+                                <p>更新日期：2016-06-21</p>
+                                <p>语言：简体中文</p>
+                            </div>
+                            <div class="st_code">
+                                <div class="wx_img1">
+                                    <img style="width: 128px; height: 128px;" src="/web/images/net_bbs.jpg">
+                                </div>
+                            </div>
+                            <div class="st_btn">
+                                <div class="st_btn_iso">
+                                    <a href="http://dl1sw.baidu.com/soft/9b/15910/Microsoft.NET.exe?version=585709662" rel="nofollow" target="_blank"><img src="/web/images/netdown.png"></a>
+                                </div>
+                            </div>
+                            <div class="clearflaot"></div>
+                        </div>
+                    </li>
+                </ul>
+                <script>
+                    $(".btn2").each(function(){
+                        $(this).click(function(){
+                            var show = $(this).parent().parent().parent().next();
+                            if(show.css("display")!="none"){
+                                show.slideUp();
+                            }else{
+                                $(".rj_show").each(function(){
+                                    $(this).slideUp();
+                                });
+                                show.slideDown();
+                            }
+                        });
+                    });
+                </script>
+                <div class="clearflaot"></div>
+            </div>
+        </div>
+        <!-- 主体 end-->
+
+
+        <div class="clearflaot"></div>
+    </div>
+</div>
+
+
+
+{/block}
+
+{block name="javascript"}
+<script src="/web/js/index.js"></script>
+<script src="/web/js/lib/slider.js"></script>
+{/block}

@@ -1,0 +1,42 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">
+    {if $Think.cookie.links_type_id}修改链接分类{else}添加链接分类{/if}
+    <span><a href="{:url(ADMIN_ROUTE.'links/type')}" title="分类管理"><i class="iconfont">&#xe6c7;</i></a></span>
+</div>
+
+<div class="form">
+    <form id="Links_type_edit" >
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label>
+                <span>链接分类名称：</span>
+                <span><input type="text" name="name" value="{$type.name}"></span>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span>排序：</span>
+                <span><input type="text" name="sort" value="{if $type.sort}{$type.sort}{else}50{/if}"></span>
+            </label>
+        </div>
+
+        <input type="hidden" name="links_type_id" value="{$Think.cookie.links_type_id}">
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="button" name="sub" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/links_type_edit.js"></script>
+{/block}

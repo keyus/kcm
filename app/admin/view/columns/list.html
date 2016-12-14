@@ -1,0 +1,45 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+<div class="title">栏目管理</div>
+<div class="filter">
+    <div class="handle">
+
+    </div>
+    <div class="block"><a href="/admin/column/edit" id="add_Cate" title="添加栏目"><i class="iconfont">&#xe836;</i></a></div>
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>名称</th>
+            <th>url访问名</th>
+            <th>允许访问</th>
+            <th>排序</th>
+            <th>操作</th>
+        </tr>
+
+        {if $list}
+        {foreach $list as $it}
+        <tr>
+            <td>{$it.id}</td>
+            <td>{$it.name}</td>
+            <td>{$it.url}</td>
+            <td>{if $it.is_vist}是{else}<i class="red">否</i>{/if}</td>
+            <td>{$it.sort}</td>
+            <td>
+                <a href="javascript:;" data-edit="{$it.id}">编辑</a>
+                <a href="javascript:;" data-delete="{$it.id}">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+        {/if}
+    </table>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/column.js"></script>
+{/block}

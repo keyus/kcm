@@ -1,0 +1,78 @@
+{extend name='layout/main' /}
+
+{block name='main'}
+
+<div class="title">{if $Think.cookie.category_id}修改链接{else}添加链接{/if}</div>
+<div class="form site_form">
+    <form id="Slider_edit" action="/api/edit_slider" method="post" enctype="multipart/form-data" >
+        <div class="error"></div>
+        <div class="success"></div>
+        <div>
+            <label for="#">
+                <span>上传图片：</span>
+                <span>
+                    <ul class="upload_thumb">
+                        <li id="show-upload-img" {if $slider.img} {else} style="display: none" {/if}>
+                            <img src="{if $slider.img} {$slider.img} {/if}" alt="" class="thumb">
+                        </li>
+                        <li class="upload_input">
+                            <input type="file" name="img">
+                        </li>
+                    </ul>
+                    <tt style="display: block;clear: both">上传图片格式jpg,jpeg,gif,png，且大小不能超过2M</tt>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>超链接：</span>
+                <span>
+                    <input type="text" name="url" value="{$slider.url}"><br>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>使用：</span>
+                <span>
+                    {if isset($slider.is_use)}
+                    <input type="checkbox" name="is_use" value="1" {if $slider.is_use}checked{/if}> 是
+                    {else}
+                    <input type="checkbox" name="is_use" value="1" checked> 是
+                    {/if}
+
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>描述：</span>
+                <span>
+                    <input type="text" name="alt" value="{$slider.alt}"><br>
+                    <tt>可以为空，作用于图片alt属性,增加搜索引擎友好度</tt>
+                </span>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>排序：</span>
+                <span><input type="text" name="sort" value="{if $slider.sort}{$slider.sort}{else}50{/if}"></span>
+            </label>
+        </div>
+
+        <input type="hidden" name="slider_id" value="{$Think.cookie.slider_id}">
+        <div>
+            <label for="#">
+                <span></span>
+                <span><input type="submit" value="保存"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+
+{/block}
+
+{block name='javascript'}
+<script src="/asset/js/slider_edit.js"></script>
+{/block}

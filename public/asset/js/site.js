@@ -1,0 +1,9 @@
+(function(doc){
+    if(getCookie('site_save')=='1'){
+        layer.msg('保存成功',{icon:1});
+    }
+    if(getCookie('site_save')=='0'){
+        layer.msg('保存失败，请稍候再试',{icon:2});
+    }
+    clearCookie('site_save');
+})(document)
